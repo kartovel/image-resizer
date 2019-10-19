@@ -19,7 +19,7 @@
       var baseConfig = {
         quality: 0.85,
         autoRotate: true,
-        debug: true
+        debug: false
       };
       function resizeImage() {
         var image = document.querySelector("#image").files[0];
@@ -31,7 +31,6 @@
         fReader.onloadend = function(event) {
           var img = new Image();
           img.onload = function() {
-            console.log(img.width);
             if (img.width >= img.height) {
               var maxSize = {
                 maxWidth: 300
