@@ -37,6 +37,7 @@ function resizeImage() {
         // Download resizedImage as blob as file
         download.href = URL.createObjectURL(resizedImage);
         download.download = image.name;
+        download.style.display = "block";
       });
     };
     img.src = fReader.result;
