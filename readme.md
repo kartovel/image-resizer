@@ -10,7 +10,7 @@
   Change image size as fast as it posible
 </h3>
 <p align="center">
-  <a href="https://github.com/jaketvvv/gatsby/blob/master/LICENSE">
+  <a href="https://github.com/JakeTvvv/image-resizer/blob/master/LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Image Resizer is released under the MIT license." />
   </a>
   <a href="https://twitter.com/intent/follow?screen_name=machometr">
