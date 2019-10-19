@@ -2,9 +2,66 @@
 <html lang="pl">
   <head>
     <meta charset="UTF-8" />
-    <title>Resize</title>
+    <title>Resize Image for Lesser</title>
   </head>
+  <style>
+    body {
+      margin: 0 auto;
+      padding: 0;
+      background-image: url("http://lo.tarnobrzeg.pl/szablony/lesser/img/body_bg.png");
+      background-position-x: initial;
+      background-position-y: initial;
+      background-size: initial;
+      background-repeat-x: repeat;
+      background-repeat-y: no-repeat;
+      background-attachment: initial;
+      background-origin: initial;
+      background-clip: initial;
+      background-color: rgb(216, 216, 216);
+  }
+  .top {
+    margin: 0 auto;
+    padding: 0;
+    width: 961px;
+    height: 126px;
+  }
+   .logo {
+     float: left;
+     width: 270px;
+   }
+   #logos {
+     display: block;
+     margin: 30px 30px 10px 0;
+   }
+   .napis {
+     float: right:;
+   }
+   #text {
+     margin-top: 30px;
+     margin-right: 70px;
+     float: right;
+   }
+   .box { 
+     margin: 0 auto;
+     width: 961px;
+   }
+   #download {
+    
+   }
+  
+  
+  
+  </style>
   <body>
+    <div class="top">
+      <div class="logo">
+        <img src="http://lo.tarnobrzeg.pl/szablony/lesser/img/logo.png" id="logos">
+      </div>
+      <div class="napis">
+        <img src="http://lo.tarnobrzeg.pl/szablony/lesser/img/top_text.png" id="text">
+      </div>
+     </div>
+     <div class="box">
     <input
       type="file"
       id="image"
@@ -13,52 +70,8 @@
       onchange="resizeImage()"
     />
     <a href="" id="download" target="_blank">Download</a>
-
+    </div>
     <script src="https://cdn.jsdelivr.net/gh/ericnograles/browser-image-resizer@2.0.1/dist/index.js"></script>
-    <script>
-      var baseConfig = {
-        quality: 0.85,
-        autoRotate: true,
-        debug: false
-      };
-      function resizeImage() {
-        var image = document.querySelector("#image").files[0];
-        var download = document.querySelector("#download");
-
-        var fReader = new FileReader();
-
-        fReader.readAsDataURL(image);
-        fReader.onloadend = function(event) {
-          var img = new Image();
-          img.onload = function() {
-            if (img.width >= img.height) {
-              var maxSize = {
-                maxWidth: 300
-              };
-            } else {
-              var maxSize = {
-                maxWidth: 280
-              };
-            }
-            var config = {
-              ...baseConfig,
-              ...maxSize
-            };
-
-            BrowserImageResizer.readAndCompressImage(image, config).then(
-              function(resizedImage) {
-                // Open resizedImage in new tab as blob
-                // console.log(resizedImage);
-                // window.open(URL.createObjectURL(resizedImage));
-
-                // Download resizedImage as blob as file
-                download.href = URL.createObjectURL(resizedImage);
-              }
-            );
-          };
-          img.src = fReader.result;
-        };
-      }
-    </script>
+    <script src="images.js"></script>
   </body>
 </html>
